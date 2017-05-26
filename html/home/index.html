@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+
+  <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
+
+    <style>
+
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .background{
+      background-image: url("http://cdn.youredm.com/wp-content/uploads/2016/05/EDC-LV-2016.jpg?x56677");
+      width: 100%; height: 100%; min-height: 100%;
+      margin: 0;
+      background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+
+
+    }
+    h1{
+      color: white;
+      font-size: 40px;
+      font-weight: 600;
+      padding-left: 30px;
+    }
+
+    .loggedout{
+      color: white;
+      font-size: 40px;
+      font-weight: 600;
+      padding-left: 30px;
+      margin-top: -80px;
+    }
+
+  legend{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: black;
+  }
+
+  h3{
+    color: white;
+    padding-left:50px;
+    font-size: 20px;
+  }
+
+  span{
+    background-color: black;
+  }
+
+  .border-container{
+    padding-top: 100px;
+  }
+
+  .control-label{
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: black;
+  }
+
+  a {
+    color: white;
+  }
+
+  .welcome{
+    padding-left:100px;
+    font-size: 20px;
+    background-color: black;
+
+  }
+
+h2{
+  color: white;
+  padding-left: 30px;
+}
+
+h4{
+  color: white;
+  font-size: 25px;
+  padding-left: 100px;
+}
+
+nav {
+  margin-top: -70px;
+}
+
+p{
+  color: white;
+  font-size: 20px;
+}
+
+.edit{
+  padding-top: 200px;
+}
+.delete{
+  float: right;
+  margin-right: 60px;
+
+}
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div class="border-container">
+
+        <br>
+        {{#logged_in}}
+        <nav class ="clearfix">
+            <a class="welcome" href="/users/{{id}}">{{user_name}}'s Profile</a>
+            <a class="welcome" href="/festivals">Go to Festivals</a>
+            <a class="welcome" href="http://localhost:3000/users">Connect with other Users</a>
+            <a class="welcome" href="/logout">Logout</a>
+        </nav>
+
+          <h1>EDM CIRCUIT</h1>
+          <h4><span> Welcome {{user_name}}!!!</span><h4>
+
+
+
+          <div class="edit">
+              <form class="form-horizontal" action="/user?_method=PUT" method="post">
+                <fieldset>
+                  <legend>Update Your Email Address</legend>
+                  <div class="form-group">
+                    <label for="userEmail" class="col-lg-2 control-label"> Edit Email</label>
+                    <div class="col-lg-10">
+                      <input name="email" type="text" class="form-control" value="{{email}}">
+                    </div>
+                    <input type="submit" />
+                  </div>
+                </fieldset>
+              </form>
+          </div>
+        </div>
+
+        <div class="delete">
+            <form action='/user?_method=delete' method='post'>
+              <button class="delete" type='submit'>Delete My Profile Forever:(</button>
+
+            </form>
+
+        </div>
+        {{/logged_in}}
+
+
+<!-- **********NOT LOGGED IN OR SIGNED IN ******         -->
+
+        {{^logged_in}}
+          <h1 class="loggedout">EDM CIRCUIT</h1>
+          <h3><span>Explore festivals locally and worldwide!</span></h3>
+          <h3><span>Connect with other users and find your festival crew!</span></h3>
+          <br>
+          <br>
+        <div class="col-lg-6 center-block">
+          <div class="well bs-component">
+            <form class="form-horizontal" action="/login" method="post">
+              <fieldset>
+                <legend>Login</legend>
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-10">
+                    <input name="email" type="text" value='joeycat17@gmail.com' class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
+                    <input name="password" type="password" class="form-control" value='aliballs' id="inputPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <h3><span><a href="/signup">Not a member? <br>
+            <br>
+            Sign Up!</a></span></h3>
+        </div>
+        {{/logged_in}}
+      </div>
+    </div>
+  </body>
+</html>

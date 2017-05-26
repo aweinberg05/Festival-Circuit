@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+
+    </title>
+<style>
+    .festival_heading {
+      color: black;
+      text-decoration: none;
+      text-align: center;
+      font-family: fantasy;
+    }
+
+    .welcome{
+      padding-left:200px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      padding-top:40px;
+
+    }
+
+  h2{
+    color: white;
+  }
+
+  nav {
+    margin-top: -70px;
+  }
+
+.list{
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: fantasy;
+}
+
+.festinfo{
+  font-size: 20px;
+  font-family: fantasy;
+}
+  </style>
+
+  </head>
+  <body>
+
+    <div>
+
+
+        <a class="welcome" href="http://localhost:3000/">Home</a>
+        <a class="welcome" href="http://localhost:3000/users">Connect with other Users</a>
+        <a class="welcome" href="/logout">Logout</a>
+</div>
+<div>
+    <p class="list">Don't see your favorite festival on the list? <a href ="http://localhost:3000/festivals/search">CLICK HERE</a> to search
+    for more!</p>
+
+</div>
+<br>
+<div>
+      {{#festivals}}
+        <h1><a class="festival_heading" href="festivals/{{id}}">{{name}}</a></h1>
+        <a href="festivals/{{id}}"><img src='{{festival_image}}' height="400px" width="1200px"></a>
+        <h3 class="festinfo">Date: {{date}}</h3>
+        <h3 class="festinfo">Location: {{city_or_state}} {{country}}</h3>
+        <br>
+        <br>
+      {{/festivals}}
+</div>
+  </body>
+</html>

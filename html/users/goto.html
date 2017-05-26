@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .background{
+      background-image: url("https://i0.wp.com/weownthenitenyc.com/wp-content/uploads/2016/06/We-Own-The-Nite-NYC_EDC-Las-Vegas-2016_EDC-20_Day-2.jpg?resize=895%2C530");
+      width: 100%; height: 100%; min-height: 100%;
+      margin: 0;
+      background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      overflow: hidden;
+      opacity: .8;
+    }
+
+    .welcome{
+      padding-left:200px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      padding-top:20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+    <h1> INFORMATION UPDATED</h1>
+      <a class="welcome" href="http://localhost:3000/">Home</a>
+      <a class="welcome" href="http://localhost:3000/festivals">Go to Festivals</a>
+      <a class="welcome" href="/users/{{id}}">Return to {{user_name}}'s Profile</a>
+    </div>
+  </body>
+</html>

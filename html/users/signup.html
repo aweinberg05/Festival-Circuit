@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<style>
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.background{
+  background-image: url("https://i.ytimg.com/vi/EugwaEEIh-U/maxresdefault.jpg");
+  width: 100%; height: 100%; min-height: 100%;
+  margin: 0;
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+  opacity: .8;
+}
+
+h1{
+  color: black;
+  font-family: fantasy;
+  font-size: 25px;
+  background-color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
+h2{
+  color: white;
+  font-family: fantasy;
+  padding-left: 30px;
+}
+
+p{
+  color: white;
+  padding-left: 15px;
+  font-family: fantasy;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+button{
+  border: solid magenta 2px;
+  margin-left: 20px;
+}
+span{
+  background-color: black;
+
+.signup{
+  padding-top: 40px;
+}
+
+form{
+  border: solid magenta 2px;
+}
+
+</style>
+  </head>
+  <body>
+
+    <div class="background">
+      <div>
+      <h1>Gain access to the EDM Circuit with 2 Easy steps: <br>
+        1. Create Your Profile<br>
+        2. Log in and explore!</h1>
+        <div>
+          <div class="signup">
+        <form  action="/users" method="post">
+          <p><span>Email:</span> <input name="email" type="text" placeholder="Email"></p>
+          <p><span>Password:</span> <input name="password" type="password" placeholder="Password"></p>
+          <p><span>User Name:</span> <input type="user name" name="user_name"></p>
+          <p><span>Profile Picture:</span> <input type="profile picture" name="profile_pic"></p>
+          <p><span>Country:</span>   <input type="country" name="country"></p>
+          <p><span>City or State:</span>   <input type="city or state" name="city_or_state"></p>
+          <p><span>Favorite EDM genre(s):</span> <input type="favorite edm genre" name="fave_genre"></p>
+          <p><span>Favorite Festival:</span>  <input type="favorite festival" name="fave_festival"></p>
+          <p><span>My Festival Pics:</span> <input type="festival pics" name="festival_pictures"></p>
+          <div>
+        <!-- <select>
+         {{#festivals}}
+         <option value="{{ id }}" name="festival_id" >{{ name }}</option>
+         {{/festivals}}
+       </select> -->
+       <button type="submit">Submit and Log in!</button>
+     </form>
+  </div>
+  </body>
+</html>
+
+<!-- <fieldset>
+  <legend>Sign Up</legend>
+  <div class="form-group">
+    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-10">
+      <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+    <div class="col-lg-10">
+      <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button type="submit" class="btn btn-primary">Join!</button>
+    </div>
+  </div>
+</fieldset> -->

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+    .welcome{
+      padding-left:200px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      padding-top:40px;
+
+    }
+    img{
+      border: solid black 3px;
+
+    }
+
+    h1{
+      padding-left: 20px;
+      font-family: fantasy;
+      text-align: center;
+    }
+
+    h3{
+      padding-left: 20px;
+      font-family: fantasy;
+    }
+    </style>
+  </head>
+  <body>
+
+    <a class="welcome" href="/festivals">Go to Festivals</a>
+    <a class="welcome" href="http://localhost:3000/users">Connect with other Users</a>
+    <a class="welcome" href="/logout">Logout</a>
+
+<div>
+<br>
+<br>
+<div>
+    <h1>{{user_name}}'s Profile</h1>
+    <img src='{{profile_pic}}' height="400px" width="auto">
+    <h3>Country: {{country}}</h3>
+    <h3>City/State: {{city_or_state}}</h3>
+    <h3>Favorite genre(s): {{fave_genre}}</h3>
+    <h3>Favorite Festival: {{fave_festival}}</h3>
+    <h3>My Pics:</h3>
+    <img src='{{festival_pictures}}' height="200px" width="auto">
+
+</div>
+
+<div style="border: 3px solid magenta">
+  {{#data}}
+
+    <p class="usercomment">{{user_name}} ({{rsvp}}): {{comment}}</p>
+
+  {{/data}}
+<div>
+  </body>
+
+</html>

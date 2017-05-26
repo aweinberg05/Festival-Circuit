@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .background{
+      background-image: url("https://i1.sndcdn.com/artworks-000099215875-8rj51k-t500x500.jpg");
+      margin: 0;
+      background-position: center center;
+      background-repeat:  no-repeat;
+      background-size: cover;
+      opacity: .8;
+    }
+
+    .welcome{
+      padding-left:200px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      padding-top:20px;
+    }
+
+    p{
+      padding-left: 30px;
+      padding-right: 50px;
+      text-align: justify;
+    }
+    span{
+      background-color: rgba(255,255,255,0.5);
+    }
+
+    .event{
+      background-color: magenta;
+    }
+    </style>
+  </head>
+  <body>
+
+   </div>
+
+    <div class="background">
+    <h1>Upcoming festivals and events</h1>
+      <a class="welcome" href="http://localhost:3000/">Home</a>
+      <a class="welcome" href="http://localhost:3000/festivals">Go to Festivals</a>
+      <a class="welcome" href="/logout">Logout</a>
+
+
+    <div>
+    {{#api}}
+    <p><span class="event">Event: {{title}}</span></p>
+    <p><span> Description: {{description}}</span></p>
+    <p><span>Date_Time: {{start_time}}</span></p>
+    <p><span>Country: {{country_name}}</span></p>
+    <p><span>City or State: {{region_name}}</span></p>
+    {{/api}}
+    <br>
+
+    </div>
+  </div>
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script src="/scripts/moment.min.js"></script>
+      <script src="/scripts/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .festival_heading {
+          color: black;
+          text-decoration: none;
+          text-align: center;
+          font-family: fantasy;
+        }
+
+        .welcome{
+          padding-left:200px;
+          font-size: 20px;
+          background-color: black;
+          color: white;
+          text-decoration: none;
+          padding-top:40px;
+
+        }
+
+      h2{
+        color: white;
+      }
+
+      nav {
+        margin-top: -70px;
+      }
+
+    .list{
+      text-align:justify;
+      margin-top: 40px;
+      font-size: 20px;
+      font-family: fantasy;
+    }
+
+    .festinfo{
+      font-size: 20px;
+      font-family: fantasy;
+    }
+
+    .form-horizontal{
+      width:300px;
+    }
+
+    .comments{
+      font-size: 20px;
+      font-family: fantasy;
+    }
+.usercomment{
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+      </style>
+  </head>
+  <body>
+
+    <a class="welcome" href="http://localhost:3000/">Home</a>
+    <a class="welcome" href="http://localhost:3000/users">Connect with other Users</a>
+    <a class="welcome" href="/logout">Logout</a>
+
+
+    <h1><a class="festival_heading" href="festivals/{{id}}">{{name}}</a></h1>
+    <img src="{{festival_image}}"height="400px" width="1200px">
+    <h3 class="list">{{description}}</h3>
+    <h3 class="list">Date: {{date}}</h3>
+
+
+  <div class="comments">
+    <form class="form-horizontal" action="/festivals/{{festival_id}}" method="POST">
+    <div class="form-group">
+    <label for="comment" class="form-horizontal">Comment</label>
+    <div>
+      <input type="text" class="form-horizontal" placeholder="Comment" name="comment">
+    </div>
+
+    </div>
+    <label for="inputEmail3" class="col-sm-8 control-label">Attending</label>
+    <div class="col-sm-8">
+      <select class="form-horizontal" name="attending">
+        <option>All in!</option>
+        <option>On the fence</option>
+        <option>So many festivals so little time</option>
+        <option>Can't make it</option>
+
+      </select>
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+    <div style="border: 3px solid magenta">
+      {{#data}}
+
+        <p class="usercomment"><a href="/users/{{id}}">{{user_name}}</a>({{rsvp}}): {{comment}}</p>
+
+
+      {{/data}}
+
+    </div>
+  </div>
+
+
+
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+      <script src="scripts/moment.min.js"></script>
+      <script src="scripts/main.js"></script>
+
+  </body>
+</html>

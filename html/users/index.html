@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+
+    </title>
+    <style>
+    .welcome{
+      padding-left:200px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      padding-top:20px;
+
+    }
+
+    img{
+      border: solid black 2px;
+
+    }
+
+    .username{
+      font-size: 20px;
+      font-family: fantasy;
+      text-decoration: none;
+      color: black;
+    }
+
+    h4{
+      font-size: 20px;
+      font-family: fantasy;
+      margin-top: -10px;
+    }
+
+    .network{
+      font-size: 20px;
+      font-family: fantasy;
+      text-align: center;
+    }
+
+    </style>
+  </head>
+    <body>
+  <div>
+    <a class="welcome" href="/festivals">Go to Festivals</a>
+    <a class="welcome" href="http://localhost:3000/">Home</a>
+    <a class="welcome" href="/logout">Logout</a>
+  <div>
+
+    <br>
+  <div>
+
+    <h1 class="network">Searh profiles. Find your festival crew!<h1>
+
+      {{#users}}
+        <a href="users/{{id}}"><img src='{{profile_pic}}' height="200px" width="auto"></a>
+        <h1><a class="username" href="users/{{id}}">User Profile: {{user_name}}</a></h1>
+        <h4>Country: {{country}}</h4>
+        <h4>City or State: {{city_or_state}}</h4>
+
+      {{/users}}
+  </div>
+  </body>
+</html>
