@@ -91,10 +91,10 @@
     <button type="submit">Submit</button>
     </form>
     <div style="border: 3px solid magenta">
+        <h3> Check out other users going!</h3>
       {{#data}}
 
-        <p class="usercomment"><a href="/users/{{id}}">{{user_name}}</a>({{rsvp}}): {{comment}}</p>
-
+        <p class="usercomment"><a href="/users/{{id}}"><img src='{{profile_pic}}' height="60px" width="auto">{{user_name}}</a>(RSVP: {{rsvp}}): {{comment}}</p>
 
       {{/data}}
 
