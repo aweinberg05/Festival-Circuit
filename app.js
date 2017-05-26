@@ -214,6 +214,14 @@ app.get("/users", function(req, res){
 
 //************User Profile****************
 app.get('/users/:id', function(req, res){
+  var info
+  if(req.session.user){
+    let info = {
+      logged_in: true,
+       user_name: req.session.user.user_name,
+       email: req.session.user.email
+     };
+  var user_id = req.session.user.id
   var id = req.params.id;
   db.one("SELECT * FROM users WHERE id=" + id).then(function(data){
     console.log(data)
@@ -226,9 +234,12 @@ app.get('/users/:id', function(req, res){
       fave_genre: data.fave_genre,
       fave_festival: data.fave_festival,
       festival_pictures: data.festival_pictures
-    };
+      };
     res.render('users/show', one_user)
-  })
+     })
+  } else {
+    res.render('home/index');
+  }
 })
 
 
