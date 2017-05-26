@@ -143,7 +143,7 @@ app.get("/festivals/search", function(req, res){
 
 app.get("/festivals", function(req, res){
    db
-     .any("SELECT * FROM festivals")
+     .any("SELECT * FROM festivals ORDER BY name")
      .then(function(data){
        let festivals_array = {
           festivals: data,
@@ -206,7 +206,6 @@ app.get("/users", function(req, res){
      .then(function(data){
        let user_array = {
           users: data,
-          message: 'Create a profile'
      };
      res.render("users/index", user_array)
   })
