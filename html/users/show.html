@@ -56,7 +56,52 @@
     <p class="usercomment"><img src='{{profile_pic}}' height="50px" width="auto"> ({{rsvp}}): {{comment}}</p>
 
   {{/data}}
-<div>
+</div>
+
+
+          <div class="edit">
+              <form class="form-horizontal" action="/user?_method=PUT" method="post">
+                <fieldset>
+                  <legend>Update Your Profile</legend>
+                  <div class="form-group">
+
+                    <label for="userEmail" class="col-lg-2 control-label"> Edit Email</label>
+                    <div class="col-lg-10">
+                    <input name="email" type="text" class="form-control" value="{{email}}">
+                      <input type="submit" />
+                    </div>
+
+                      <label for="userName" class="col-lg-2 control-label"> Edit User Name</label>
+                      <div class="col-lg-10">
+                        <input name="user_name" type="text" class="form-control" value="{{user_name}}">
+                          <input type="submit" />
+                      </div>
+
+                        <label for="userPic" class="col-lg-2 control-label"> Edit Picture</label>
+                        <div class="col-lg-10">
+                        <input name="profile_pic" type="text" class="form-control" value="{{profile_pic}}">
+                          <input type="submit" />
+                      </div>
+
+                    </div>
+
+                  </div>
+                </fieldset>
+              </form>
+          </div>
+        </div>
+
+        <div class="delete">
+            <form action='/user?_method=delete' method='post'>
+              <button class="delete" type='submit'>Delete My Profile Forever:(</button>
+
+            </form>
+
+        </div>
+
+
+</div>
+
   </body>
 
 </html>
