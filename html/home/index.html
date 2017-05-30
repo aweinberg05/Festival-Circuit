@@ -49,7 +49,6 @@
     color: white;
     font-size: 20px;
     font-weight: 600;
-    background-color: black;
   }
 
   h3{
@@ -105,13 +104,9 @@ p{
 }
 
 .edit{
-  padding-top: 200px;
+  padding-top: 40px;
 }
-.delete{
-  float: right;
-  margin-right: 60px;
 
-}
     </style>
   </head>
   <body>
@@ -131,16 +126,15 @@ p{
           <h1>Welcome {{user_name}}!!!</h1>
 
 
-<!--
           <div class="edit">
               <form class="form-horizontal" action="/user?_method=PUT" method="post">
                 <fieldset>
                   <legend>Update Your Profile</legend>
                   <div class="form-group">
 
-                    <label for="userEmail" class="col-lg-2 control-label"> Edit Email</label>
+                    <label for="userEmail" class="col-lg-2 control-label"> Edit Email (Or Enter Current Email)</label>
                     <div class="col-lg-10">
-                    <input name="email" type="text" class="form-control" value="{{email}}">
+                      <input name="email" type="text" value='{{email}}' class="form-control" required>
                       <input type="submit" />
                     </div>
 
@@ -157,20 +151,23 @@ p{
                       </div>
 
                     </div>
-
                   </div>
                 </fieldset>
               </form>
+              
+              <div class="delete">
+                  <form action='/user?_method=delete' method='post'>
+                    <button class="delete" type='submit'>Delete My Profile Forever:(</button>
+
+                  </form>
           </div>
         </div>
 
-        <div class="delete">
-            <form action='/user?_method=delete' method='post'>
-              <button class="delete" type='submit'>Delete My Profile Forever:(</button>
 
-            </form>
 
-        </div> -->
+        </div>
+
+
         {{/logged_in}}
 
 
