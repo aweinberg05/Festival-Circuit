@@ -89,8 +89,8 @@ app.get('/logout', function(req, res){
 app.put('/user', function(req, res){
   const usersdata = req.session.user;
   db
-    .none("UPDATE users SET email = $1 WHERE email = $2",
-      [req.body.email, req.session.user.email]
+    .none("UPDATE users SET email = $1, user_name=$2, profile_pic=$3 WHERE id = $4",
+      [req.body.email, req.body.user_name, req.body.profile_pic, req.session.user.id]
     ).catch(function(){
       res.send('Failed to update user.');
     }).then(function(user){
@@ -105,6 +105,7 @@ app.put('/user', function(req, res){
 
     });
 });
+
 
 //*******DELETE USER*********
 app.delete ('/user', function(req, res){
