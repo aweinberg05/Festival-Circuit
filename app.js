@@ -87,7 +87,16 @@ app.get('/logout', function(req, res){
 
 //******update email*******//
 app.put('/user', function(req, res){
-  const usersdata = req.session.user;
+  var info
+  if(req.session.user){
+    let info = {
+      logged_in: true,
+       user_name: req.session.user.user_name,
+       id: req.session.user.id,
+       email: req.session.user.email
+     };
+  var user_id = req.session.user.id
+  var id = req.params.id;
   db
     .none("UPDATE users SET email = $1, user_name=$2, profile_pic=$3 WHERE id = $4",
       [req.body.email, req.body.user_name, req.body.profile_pic, req.session.user.id]
@@ -99,13 +108,14 @@ app.put('/user', function(req, res){
          user_name: req.session.user.user_name,
          id: req.session.user.id,
          email: req.session.user.email
-         //above "id" may not work...
+
     };
         res.render('users/goto', data)
-
     });
+  }else{
+    res.render('home/index');
+  }
 });
-
 
 //*******DELETE USER*********
 app.delete ('/user', function(req, res){
