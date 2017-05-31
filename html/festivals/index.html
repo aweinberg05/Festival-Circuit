@@ -59,6 +59,28 @@
     for more!</p>
 
 </div>
+
+<div>
+    <form action="/festivals" method="POST">
+      Name: <input type="text" name="name"><br>
+      Date: <input type="text" name="date"><br>
+      Country: <input type="text" name="country"><br>
+      What city or state:<input type="text" name="city_or_state"><br>
+      Add an image of the festival:<input type="text" name="festival_image"><br>
+      Add a description of the festival: <input type="text" name="description"><br>
+      <!-- What's your favorite thing about this festival: <input type="text" name="comment"><br>
+      Will you be attending this year?
+       <select class="form-horizontal" name="attending">
+        <option>All in!</option>
+        <option>On the fence</option>
+        <option>So many festivals so little time</option>
+        <option>Can't make it</option>
+
+      </select> -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
 <br>
 <div>
       {{#festivals}}

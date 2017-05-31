@@ -209,6 +209,32 @@ app.post('/festivals/:id', function(req, res){
 })
 })
 
+app.post('/festivals', function(req, res){
+  // id=req.params.id;
+  name = req.body.name;
+  date = req.body.date;
+  country = req.body.country;
+  city_or_state = req.body.city_or_state;
+  festival_image = req.body.festival_image;
+  description = req.body.desription;
+  comment = req.body.comment;
+  user_id = req.session.user.id;
+  attending = req.body.attending;
+  console.log(name);
+  console.log(date);
+  console.log("this is post")
+  console.log(comment);
+  console.log(user_id);
+  console.log(attending);
+  db.one('insert into festivals (name, date, country, city_or_state, festival_image, description) values($1, $2, $3, $4, $5, $6) returning id', [name, date, country, city_or_state, festival_image, description])
+  .then (data=>{
+  // db.one('insert into attending (comment, rsvp, user_id, festival_id) values($1, $2, $3, $4) returning id', [comment, attending, user_id, festival_id])
+  // .then (data=>{
+  res.redirect('/festivals');
+})
+})
+
+
 
 //********LIST OF USERS*********
 app.get("/users", function(req, res){
@@ -259,8 +285,8 @@ app.get('/signup', function(req, res){
   res.render('users/signup');
 });
 
-//********PROFILE SET UP PAGE*********
 
+//********PROFILE SET UP PAGE*********
 app.post('/users', function(req, res){
   email = req.body.email
   password_digest = req.body.password_digest
