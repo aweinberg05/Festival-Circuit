@@ -1,7 +1,7 @@
 -- remove any records and start the id sequence back to 1
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS festivals CASCADE;
-DROP TABLE IF EXISTS attending CASCADE;
+DROP TABLE IF EXISTS attending;
 
 -- add create tables here
 CREATE TABLE users (
@@ -52,7 +52,7 @@ VALUES
   ('Tomorrowland', 'Jul 21 – Jul 30, 2017', 'Belgium', 'Boom', 'http://www.edmsauce.com/wp-content/uploads/2015/08/11055355_10153236545434177_3865099953252782933_o.jpg', 'Tomorrowland is without doubt the biggest and most important dance music festival on the planet. House, EDM, techno, drum & bass, hardstyle and every other corner of electronic music is represented by worldwide superstars, all staged amongst the highest levels of production known to humankind.
 With every single detail of the festival experience covered, a trip to Tomorrowland leaves a lasting impression that long outlives the party marathon of the festival itself.  And with this level of popularity comes mind-blowing demand: tickets and packages have always sold out in a matter of minutes. For anyone lucky enough to have been, it is guaranteed to have been the weekend of a lifetime'),
 ('Electric Forest', 'Jun 22 - Jun 25, and Jun 29 - Jul 2, 2017', 'United States', 'Michigan', 'http://images.thissongissick.com/c_scale-f_auto-w_706-v1460863394-tsis-2016-03-ef-co-png-png.jpg', 'Electric Forest Festival is a eight day two weekend multi-genre event, with a focus on electronic and jam band genres, held in Rothbury, Michigan, at the Double JJ Resort. The original event was called Rothbury Festival, debuted in 2008, and focused on jam bands and rock bands.  Electric Forest, which debuted in 2011, is co-produced by Insomniac Events and Madison House. The 2015 event drew an estimated 45,000 attendees.'),
-('Electric Zoo Festival', 'Sep 1 – Sep 3, 2017', 'United States', 'New York', 'http://djnews.com.br/wp-content/uploads/2016/12/14732190_10154270968408025_3870585723246469477_n.jpg', 'Electric Zoo is an annual electronic music festival held over Labor Day weekend in New York City on Randalls Island. The festival represents all genres of electronic music, bringing top international DJs and live acts from multiple countries to four stages.  In its 2009 inaugural year, 26,000 people attended to see artists Armin van Buuren, Deadmau5, David Guetta and Ferry Corsten. In 2011, Electric Zoo expanded to a 3-day festival and with 85,000 attendees. Electric Zoo received International Dance Music Awards nominations in 2010, 2011, 2012, and 2013 for "Best Music Event".');
+('Electric Zoo Festival', 'Sep 1 – Sep 3, 2017', 'United States', 'New York', 'http://djnews.com.br/wp-content/uploads/2016/12/14732190_10154270968408025_3870585723246469477_n.jpg', 'Electric Zoo is an annual electronic music festival held over Labor Day weekend in New York City on Randalls Island. The festival represents all genres of electronic music, bringing top international DJs and live acts from multiple countries to four stages.  In its 2009 inaugural year, 26,000 people attended to see artists Armin van Buuren, Deadmau5, David Guetta and Ferry Corsten. In 2011, Electric Zoo expanded to a 3-day festival and with 85,000 attendees. Electric Zoo received International Dance Music Awards nominations in 2010, 2011, 2012, and 2013 for "Best Music Event".'); 
 
 INSERT INTO attending
   (rsvp, comment, user_id, festival_id)

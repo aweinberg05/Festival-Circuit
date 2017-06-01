@@ -85,7 +85,7 @@ app.get('/logout', function(req, res){
 });
 
 
-//******update email*******//
+//******update profile*******//
 app.put('/user', function(req, res){
   var info
   if(req.session.user){
@@ -172,7 +172,7 @@ app.get('/festivals/:id', function(req, res){
   let one_festival;
   db.any("SELECT * FROM attending INNER JOIN festivals ON attending.festival_id = festivals.id INNER JOIN users ON attending.user_id = users.id WHERE festival_id=" + id)
   .then(function(data){
-    console.log(data)
+    // console.log(data)
     one_festival= {
       festival_id: Number(data[0].festival_id),
       name: data[0].name,
@@ -196,11 +196,11 @@ app.post('/festivals/:id', function(req, res){
   user_id = req.session.user.id;
   attending = req.body.attending;
   festival_id = req.params.id
-  console.log("this is post")
-  console.log(comment);
-  console.log(user_id);
-  console.log(attending);
-  console.log(festival_id);
+  // console.log("this is post")
+  // console.log(comment);
+  // console.log(user_id);
+  // console.log(attending);
+  // console.log(festival_id);
 
   db.one('insert into attending (comment, rsvp, user_id, festival_id) values($1, $2, $3, $4) returning comment', [comment, attending, user_id, festival_id])
   .then (data=>{
@@ -220,20 +220,22 @@ app.post('/festivals', function(req, res){
   comment = req.body.comment;
   user_id = req.session.user.id;
   attending = req.body.attending;
-  console.log(name);
-  console.log(date);
-  console.log("this is post")
+  // console.log(name);
+  // console.log(date);
+  // console.log("this is post")
   console.log(comment);
   console.log(user_id);
-  console.log(attending);
   db.one('insert into festivals (name, date, country, city_or_state, festival_image, description) values($1, $2, $3, $4, $5, $6) returning id', [name, date, country, city_or_state, festival_image, description])
   .then (data=>{
-  // db.one('insert into attending (comment, rsvp, user_id, festival_id) values($1, $2, $3, $4) returning id', [comment, attending, user_id, festival_id])
-  // .then (data=>{
+    console.log(data)
+    var festival_id = data.id;
+  db.one('insert into attending (comment, rsvp, user_id, festival_id) values($1, $2, $3, $4) returning id', [comment, attending, user_id, festival_id])
+  .then (data=>{
+    console.log(data)
   res.redirect('/festivals');
 })
 })
-
+})
 
 
 //********LIST OF USERS*********
